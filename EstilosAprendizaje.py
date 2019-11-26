@@ -1,13 +1,11 @@
 import argparse
 import pandas as pn
-import numpy as np
 
 
 def read_excel(file_url):
     xl = pn.read_excel(file_url)
     del xl['Unnamed: 3']
     del xl['Marca temporal']
-
 
     xl = xl.replace(to_replace=r'(^a\).*)',
                     value='1',

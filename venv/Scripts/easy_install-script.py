@@ -1,4 +1,4 @@
-#!C:\Users\Fernando\Documents\EstilosAprendizaje\venv\Scripts\python.exe
+#!C:\Users\Shado\OneDrive\Documentos\EstilosAprendizajePy\venv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'setuptools==39.1.0','console_scripts','easy_install'
 __requires__ = 'setuptools==39.1.0'
 import re
