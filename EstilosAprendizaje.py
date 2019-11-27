@@ -18,7 +18,7 @@ def read_excel(file_url):
                       value=-1,
                       regex=True)
     # se crea el data set de resultados
-    data_result = pn.DataFrame({'NAMES': xlp.loc[:, 2], 'EMAIL': xlp.loc[:, 1], 'TIMESTAMP': xlp.loc[:, 0],
+    data_result = pn.DataFrame({'NAME': xlp.loc[:, 2], 'EMAIL': xlp.loc[:, 1], 'TIMESTAMP': xlp.loc[:, 0],
                                 'TEACHER': xlp.loc[:, 4], 'POJECT': xlp.loc[:, 3]})
 
     # se eliminan las columnas innecesarias
@@ -36,10 +36,10 @@ def read_excel(file_url):
     data_result['SI'] = xlp.loc[:, [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41]].sum(axis=1)
     data_result['VV'] = xlp.loc[:, [2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42]].sum(axis=1)
     data_result['SG'] = xlp.loc[:, [3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43]].sum(axis=1)
-    print(xlp.columns.values.tolist())
 
-    print(xlp.loc[:, [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40]])
-    print(data_result['AR'])
+    #print(xlp.loc[:, [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40]])
+    with pn.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+        print(data_result)
 
 
 def main():
