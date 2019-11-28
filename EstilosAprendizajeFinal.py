@@ -21,10 +21,11 @@ def read_excel(file_url, fileO_url):
                       regex=True)
     # se crea el data set de resultados
     data_result = pn.DataFrame({'NAME': xlp.loc[:, 2], 'EMAIL': xlp.loc[:, 1], 'TIMESTAMP': xlp.loc[:, 0],
-                                'TEACHER': xlp.loc[:, 4], 'POJECT': xlp.loc[:, 3]})
+                                'AGE': xlp.loc[:, 3], 'TEACHER': xlp.loc[:, 6], 'SCHOOL': xlp.loc[:, 4],
+                                'SEMESTER': xlp.loc[:, 5]})
 
     # se eliminan las columnas innecesarias
-    xlp = xlp.drop(xlp.columns[[0, 1, 2, 3, 4]], axis=1)
+    xlp = xlp.drop(xlp.columns[[0, 1, 2, 3, 4, 5]], axis=1)
 
     xlp = xlp.rename(
         columns={x: y for x, y in zip(xlp.columns, range(0, len(xlp.columns)))})  # se substituyen las cabeceras
@@ -51,8 +52,9 @@ def read_excel(file_url, fileO_url):
         ptl.yticks(range(-11, 12))
         ptl.ylim(-11, 11)
         ptl.title("Alumno: " + data_result.iloc[index, 0]
-                  +"\n Correo: "+ data_result.iloc[index, 1]
-                  +"\n Profesor: "+ data_result.iloc[index, 3]+" "+ "Proyecto :"+ data_result.iloc[index, 4])
+                  + "\n Correo: " + data_result.iloc[index, 1]
+                  + "\n Escuela :" + data_result.iloc[index, 5] + " " + "Profesor: " + data_result.iloc[index, 4]
+                  + "\n Edad :" + str(data_result.iloc[index, 3]) + " " + "Semestre: " + str(data_result.iloc[index, 6]))
         ax1.set_xlabel("Estilo de aprendizaje")
         ax1.set_ylabel("Nivel de Estilo de aprendizaje")
         ax1.tick_params(axis='x')
@@ -64,7 +66,8 @@ def read_excel(file_url, fileO_url):
         ax2.set_xticklabels(headers2, fontdict=None, minor=False)
         ax2.tick_params(axis='x', top=True)
         fig.tight_layout()  # otherwise the right y-label is slightly
-        results_val = list(data_result.iloc[index, 5:])
+        results_val = list(data_result.iloc[index, 7:])
+        print(results_val)
         ptl.stem(headers_val, results_val)
         pdf.savefig(fig)
     pdf.close()
