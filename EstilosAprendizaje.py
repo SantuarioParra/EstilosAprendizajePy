@@ -50,6 +50,9 @@ def read_excel(file_url, fileO_url):
         fig, ax1 = ptl.subplots()
         ptl.yticks(range(-11, 12))
         ptl.ylim(-11, 11)
+        ptl.title("Alumno: " + data_result.iloc[index, 0]
+                  +"\n Correo: "+ data_result.iloc[index, 1]
+                  +"\n Profesor: "+ data_result.iloc[index, 3])
         ax1.set_xlabel("Estilo de aprendizaje")
         ax1.set_ylabel("Nivel de Estilo de aprendizaje")
         ax1.tick_params(axis='x')
@@ -63,10 +66,8 @@ def read_excel(file_url, fileO_url):
         fig.tight_layout()  # otherwise the right y-label is slightly
         results_val = list(data_result.iloc[index, 5:])
         ptl.stem(headers_val, results_val)
-        ptl.savefig('grafica.png')
-
-    #pdf.savefig("grafica.png")
-    #pdf.close()
+        pdf.savefig(fig)
+    pdf.close()
 
 
 def main():
