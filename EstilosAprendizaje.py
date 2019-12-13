@@ -52,7 +52,7 @@ def read_excel(file_url, fileO_url):
         ptl.ylim(-11, 11)
         ptl.title("Alumno: " + data_result.iloc[index, 0]
                   +"\n Correo: "+ data_result.iloc[index, 1]
-                  +"\n Profesor: "+ data_result.iloc[index, 3]+" "+ "Proyecto :"+ data_result.iloc[index, 4])
+                  +"\n Profesor: "+ data_result.iloc[index, 3]+" "+ "Proyecto :"+ str(data_result.iloc[index, 4]))
         ax1.set_xlabel("Estilo de aprendizaje")
         ax1.set_ylabel("Nivel de Estilo de aprendizaje")
         ax1.tick_params(axis='x')

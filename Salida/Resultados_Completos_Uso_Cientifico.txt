@@ -1,0 +1,2 @@
+NAME	EMAIL	TIMESTAMP	AGE	TEACHER	SCHOOL	SEMESTER	AR	SI	VV	SG
+Merlín Solís Angel Francisco	tobii48@gmail.com	2019-04-10 12:29:50.383	22	Elena Fabiola Ruiz Ledesma	ESCOM	5	-3	-5	-9	9
